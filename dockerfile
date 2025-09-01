@@ -21,7 +21,13 @@ EOF
 
 RUN xwin --accept-license --arch x86 \
 	--crt-version ${WINDOWS_CRT_VERSION} --sdk-version ${WINDOWS_SDK_VERSION} \
-	splat --output /opt/xwin --include-debug-libs
+	splat --output /opt/xwin --include-debug-libs || \
+	(sleep 30 && xwin --accept-license --arch x86 \
+	--crt-version ${WINDOWS_CRT_VERSION} --sdk-version ${WINDOWS_SDK_VERSION} \
+	splat --output /opt/xwin --include-debug-libs) || \
+	(sleep 60 && xwin --accept-license --arch x86 \
+	--crt-version ${WINDOWS_CRT_VERSION} --sdk-version ${WINDOWS_SDK_VERSION} \
+	splat --output /opt/xwin --include-debug-libs)
 
 RUN <<-EOF
 	set -eux

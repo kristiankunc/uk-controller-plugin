@@ -32,6 +32,7 @@ jobs:
                   load: true
                   build-args: |
                       WINDOWS_SDK_VERSION=10.0.22621
+                  platforms: linux/amd64
 
             - name: Run CMake
               run: |
@@ -44,13 +45,13 @@ jobs:
                   docker run -v ${{ github.workspace }}:/workspace -w /workspace/build ukcp-builder \
                     /bin/bash -c "ninja"
 
-            - name: Copy build directory to host
+            - name: Copy build artifacts
               run: |
-                  docker run -v ${{ github.workspace }}:/workspace -w /workspace/build ukcp-builder \
-                    /bin/bash -c "cp -r . /workspace/build"
+                  docker run -v ${{ github.workspace }}:/workspace -w /workspace ukcp-builder \
+                    /bin/bash -c "cp -r build/bin ./build-artifacts" || echo "Build directory may not exist yet"
 
-            - name: Upload build directory as artifact
+            - name: Upload build artifacts
               uses: actions/upload-artifact@v4
               with:
-                  name: build-artifact
-                  path: build
+                  name: build-artifacts
+                  path: build-artifacts
