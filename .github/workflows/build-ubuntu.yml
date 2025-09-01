@@ -25,13 +25,12 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                   context: .
+                  file: ./dockerfile-mingw
                   push: false
                   tags: ukcp-builder:latest
                   cache-from: type=gha
                   cache-to: type=gha,mode=max
                   load: true
-                  build-args: |
-                      WINDOWS_SDK_VERSION=10.0.22621
                   platforms: linux/amd64
 
             - name: Run CMake

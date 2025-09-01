@@ -1,0 +1,74 @@
+# Alternative approach: Use a base image with better cross-compilation support
+FROM ubuntu:24.04
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    ninja-build \
+    gcc-mingw-w64 \
+    g++-mingw-w64 \
+    wine \
+    git \
+    curl \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set up MinGW toolchain for 32-bit Windows
+ENV CC=i686-w64-mingw32-gcc
+ENV CXX=i686-w64-mingw32-g++
+ENV AR=i686-w64-mingw32-ar
+ENV STRIP=i686-w64-mingw32-strip
+ENV PKG_CONFIG_PATH=/usr/i686-w64-mingw32/lib/pkgconfig
+
+# Create a CMake toolchain file for MinGW
+RUN <<-EOF
+cat > /usr/local/share/mingw-w64-i686.cmake << 'EOF2'
+set(CMAKE_SYSTEM_NAME Windows)
+set(CMAKE_SYSTEM_PROCESSOR i686)
+
+set(TOOLCHAIN_PREFIX i686-w64-mingw32)
+
+set(CMAKE_C_COMPILER \${TOOLCHAIN_PREFIX}-gcc)
+set(CMAKE_CXX_COMPILER \${TOOLCHAIN_PREFIX}-g++)
+set(CMAKE_RC_COMPILER \${TOOLCHAIN_PREFIX}-windres)
+
+set(CMAKE_FIND_ROOT_PATH /usr/\${TOOLCHAIN_PREFIX})
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+EOF2
+EOF
+
+ENV TOOLCHAIN=/usr/local/share/mingw-w64-i686.cmake
+
+# Download and build cURL for MinGW
+ARG CURL_VERSION=7.62.0
+RUN cd /tmp && \
+    wget https://curl.se/download/curl-${CURL_VERSION}.tar.gz && \
+    tar -xzf curl-${CURL_VERSION}.tar.gz && \
+    cd curl-${CURL_VERSION} && \
+    cmake -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_CURL_EXE=OFF \
+          -DBUILD_EXAMPLES=OFF \
+          -DBUILD_TESTING=OFF \
+          -DCURL_CA_PATH=none \
+          -DCURL_USE_LIBPSL=OFF \
+          -G Ninja -B build && \
+    ninja -C build && \
+    mkdir -p /opt/curl && \
+    cp -r include /opt/curl/ && \
+    cp -r build /opt/curl/ && \
+    cd /opt/curl/build/lib && \
+    # Create MSVC-compatible library names
+    cp libcurl.a libcurl_a.lib && \
+    cp libcurl.a libcurl_a_debug.lib && \
+    cd / && rm -rf /tmp/curl-*
+
+ENV CURL_INCLUDEDIR=/opt/curl/include/
+ENV CURL_LIBRARYDIR=/opt/curl/build/lib/
+ENV CURL_DEBUG_LIBRARYDIR=/opt/curl/build/lib/
+
+CMD ["/bin/bash"]
