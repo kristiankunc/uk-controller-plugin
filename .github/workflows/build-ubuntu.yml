@@ -29,6 +29,7 @@ jobs:
 
             - name: Check Code Formatting
               run: |
+                  # Test workflow execution
                   echo "Checking C++ code formatting..."
                   # Find all C++ source and header files and check formatting
                   if find src test -name "*.cpp" -o -name "*.h" 2>/dev/null | \
