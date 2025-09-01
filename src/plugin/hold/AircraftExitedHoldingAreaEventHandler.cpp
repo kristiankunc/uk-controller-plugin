@@ -22,8 +22,8 @@ namespace UKControllerPlugin::Hold {
             data.at("callsign").get<std::string>(), navaids.Get(data.at("navaid_id").get<int>()).identifier);
     }
 
-    auto AircraftExitedHoldingAreaEventHandler::GetPushEventSubscriptions() const
-        -> std::set<Push::PushEventSubscription>
+    auto
+    AircraftExitedHoldingAreaEventHandler::GetPushEventSubscriptions() const -> std::set<Push::PushEventSubscription>
     {
         return {{Push::PushEventSubscription::SUB_TYPE_EVENT, "hold.area-exited"}};
     }

@@ -17,8 +17,8 @@ namespace UKControllerPlugin::Euroscope {
         auto GetUnsignedIntegerEntry(std::string key, unsigned int defaultValue = 0) -> unsigned int;
         auto GetIntegerEntry(std::string key, int defaultValue = 0) -> int;
         auto GetStringEntry(std::string key, const std::string& defaultValue = "") -> std::string;
-        auto GetStringListEntry(std::string key, std::vector<std::string> defaultValue = {})
-            -> std::vector<std::string>;
+        auto
+        GetStringListEntry(std::string key, std::vector<std::string> defaultValue = {}) -> std::vector<std::string>;
         auto HasEntry(std::string key) -> bool;
         void Save(std::string name, std::string description, std::string data);
         void Save(std::string name, std::string description, int data);

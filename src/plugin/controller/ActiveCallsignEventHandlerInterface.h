@@ -14,10 +14,10 @@ namespace UKControllerPlugin::Controller {
         virtual ~ActiveCallsignEventHandlerInterface();
         ActiveCallsignEventHandlerInterface(const ActiveCallsignEventHandlerInterface&);
         ActiveCallsignEventHandlerInterface(ActiveCallsignEventHandlerInterface&&) noexcept;
-        [[nodiscard]] auto operator=(const ActiveCallsignEventHandlerInterface&)
-            -> ActiveCallsignEventHandlerInterface&;
-        [[nodiscard]] auto operator=(ActiveCallsignEventHandlerInterface&&) noexcept
-            -> ActiveCallsignEventHandlerInterface&;
+        [[nodiscard]] auto
+        operator=(const ActiveCallsignEventHandlerInterface&) -> ActiveCallsignEventHandlerInterface&;
+        [[nodiscard]] auto
+        operator=(ActiveCallsignEventHandlerInterface&&) noexcept -> ActiveCallsignEventHandlerInterface&;
 
         virtual void ActiveCallsignAdded(const UKControllerPlugin::Controller::ActiveCallsign& callsign) = 0;
         virtual void ActiveCallsignRemoved(const UKControllerPlugin::Controller::ActiveCallsign& callsign) = 0;

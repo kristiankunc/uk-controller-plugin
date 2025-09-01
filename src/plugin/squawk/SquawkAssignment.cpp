@@ -82,8 +82,8 @@ namespace UKControllerPlugin::Squawk {
         Checks whether or not an assignment is needed for an automated squawk check.
     */
     auto SquawkAssignment::GeneralAssignmentNeeded(
-        const EuroScopeCFlightPlanInterface& flightPlan, const EuroScopeCRadarTargetInterface& radarTarget) const
-        -> bool
+        const EuroScopeCFlightPlanInterface& flightPlan,
+        const EuroScopeCRadarTargetInterface& radarTarget) const -> bool
     {
         if (!this->AssignmentPossible(flightPlan, radarTarget)) {
             return false;
@@ -103,8 +103,8 @@ namespace UKControllerPlugin::Squawk {
         Returns whether or not a local squawk needs to be assigned.
     */
     auto SquawkAssignment::LocalAssignmentNeeded(
-        const EuroScopeCFlightPlanInterface& flightPlan, const EuroScopeCRadarTargetInterface& radarTarget) const
-        -> bool
+        const EuroScopeCFlightPlanInterface& flightPlan,
+        const EuroScopeCRadarTargetInterface& radarTarget) const -> bool
     {
         if (!this->AssignmentPossible(flightPlan, radarTarget)) {
             return false;
@@ -118,8 +118,8 @@ namespace UKControllerPlugin::Squawk {
         Returns whether or not a tracked aircraft needs a local squawk.
     */
     auto SquawkAssignment::NeedsLocalSquawkTracked(
-        const EuroScopeCFlightPlanInterface& flightPlan, const EuroScopeCRadarTargetInterface& radarTarget) const
-        -> bool
+        const EuroScopeCFlightPlanInterface& flightPlan,
+        const EuroScopeCRadarTargetInterface& radarTarget) const -> bool
     {
         if (this->activeCallsigns.GetUserCallsign().GetNormalisedPosition().GetType() == "CTR") {
             return !flightPlan.HasAssignedSquawk() && flightPlan.GetCruiseLevel() <= this->maxAssignmentAltitude;
@@ -134,8 +134,8 @@ namespace UKControllerPlugin::Squawk {
         Whether or not an untracked aircraft require a local squawk.
     */
     auto SquawkAssignment::NeedsLocalSquawkUntracked(
-        const EuroScopeCFlightPlanInterface& flightPlan, const EuroScopeCRadarTargetInterface& radarTarget) const
-        -> bool
+        const EuroScopeCFlightPlanInterface& flightPlan,
+        const EuroScopeCRadarTargetInterface& radarTarget) const -> bool
     {
         return (flightPlan.GetOrigin() == flightPlan.GetDestination() || flightPlan.GetFlightRules() == "V" ||
                 (!flightPlan.HasSid() && flightPlan.GetCruiseLevel() <= this->maxAssignmentAltitude)) &&
@@ -150,8 +150,8 @@ namespace UKControllerPlugin::Squawk {
         For example, if they disconnect for an extended period.
     */
     auto SquawkAssignment::PreviousSquawkNeedsReassignment(
-        const EuroScopeCFlightPlanInterface& flightPlan, const EuroScopeCRadarTargetInterface& radarTarget) const
-        -> bool
+        const EuroScopeCFlightPlanInterface& flightPlan,
+        const EuroScopeCRadarTargetInterface& radarTarget) const -> bool
     {
         if (!this->AssignmentPossible(flightPlan, radarTarget)) {
             return false;
@@ -163,8 +163,8 @@ namespace UKControllerPlugin::Squawk {
     }
 
     auto SquawkAssignment::AssignmentPossible(
-        const EuroScopeCFlightPlanInterface& flightPlan, const EuroScopeCRadarTargetInterface& radarTarget) const
-        -> bool
+        const EuroScopeCFlightPlanInterface& flightPlan,
+        const EuroScopeCRadarTargetInterface& radarTarget) const -> bool
     {
         // We have to check for all zero's because of how ES handles flightplan events  halfway across Europe.
         return this->activeCallsigns.UserHasCallsign() && flightPlan.GetDistanceFromOrigin() != 0.0 &&

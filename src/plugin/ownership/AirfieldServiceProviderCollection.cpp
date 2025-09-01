@@ -67,9 +67,8 @@ namespace UKControllerPlugin::Ownership {
         return this->GetFirstServiceProviderMatchingCondition(providers, predicate) != nullptr;
     }
 
-    auto
-    AirfieldServiceProviderCollection::ServiceProvidedAtAirfieldByUser(const std::string& icao, ServiceType type) const
-        -> bool
+    auto AirfieldServiceProviderCollection::ServiceProvidedAtAirfieldByUser(
+        const std::string& icao, ServiceType type) const -> bool
     {
         return this->serviceProviders.count(icao) != 0 &&
                this->HasServiceProviderMatchingCondition(
@@ -113,9 +112,8 @@ namespace UKControllerPlugin::Ownership {
             });
     }
 
-    auto
-    AirfieldServiceProviderCollection::GetProvidersForServiceAtAirfield(const std::string& icao, ServiceType type) const
-        -> std::vector<std::shared_ptr<ServiceProvision>>
+    auto AirfieldServiceProviderCollection::GetProvidersForServiceAtAirfield(
+        const std::string& icao, ServiceType type) const -> std::vector<std::shared_ptr<ServiceProvision>>
     {
         if (this->serviceProviders.count(icao) == 0) {
             return this->noProviders;

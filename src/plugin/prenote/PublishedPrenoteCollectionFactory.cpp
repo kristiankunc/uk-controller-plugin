@@ -29,9 +29,8 @@ namespace UKControllerPlugin::Prenote {
         return collection;
     }
 
-    auto
-    PrenoteValid(const nlohmann::json& prenote, const Controller::ControllerPositionHierarchyFactory& hierarchyFactory)
-        -> bool
+    auto PrenoteValid(
+        const nlohmann::json& prenote, const Controller::ControllerPositionHierarchyFactory& hierarchyFactory) -> bool
     {
         return prenote.is_object() && prenote.contains("id") && prenote.at("id").is_number_integer() &&
                prenote.contains("controller_positions") && prenote.at("controller_positions").is_array() &&

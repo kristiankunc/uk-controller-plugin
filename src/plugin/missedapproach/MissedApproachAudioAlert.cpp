@@ -59,9 +59,8 @@ namespace UKControllerPlugin::MissedApproach {
         return this->DestinationIsAlwaysAlert(*flightplan) || this->UserProvidingServicesAtDestination(*flightplan);
     }
 
-    auto
-    MissedApproachAudioAlert::DestinationIsAlwaysAlert(const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const
-        -> bool
+    auto MissedApproachAudioAlert::DestinationIsAlwaysAlert(
+        const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const -> bool
     {
         const auto alwaysAlertAirfields = this->options->Airfields();
         return std::find(alwaysAlertAirfields.begin(), alwaysAlertAirfields.end(), flightplan.GetDestination()) !=

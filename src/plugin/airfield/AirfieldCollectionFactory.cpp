@@ -50,8 +50,8 @@ namespace UKControllerPlugin::Airfield {
         return collection;
     }
 
-    auto AirfieldValid(const nlohmann::json& airfield, const ControllerPositionHierarchyFactory& hierarchyFactory)
-        -> bool
+    auto
+    AirfieldValid(const nlohmann::json& airfield, const ControllerPositionHierarchyFactory& hierarchyFactory) -> bool
     {
         return airfield.is_object() && airfield.contains("id") && airfield.at("id").is_number_integer() &&
                airfield.contains("identifier") && airfield.at("identifier").is_string() &&

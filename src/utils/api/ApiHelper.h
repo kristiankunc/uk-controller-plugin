@@ -21,14 +21,13 @@ namespace UKControllerPlugin::Api {
         [[nodiscard]] auto
         CreateGeneralSquawkAssignment(std::string callsign, std::string origin, std::string destination) const
             -> UKControllerPlugin::Squawk::ApiSquawkAllocation override;
-        [[nodiscard]] auto
-        CreateLocalSquawkAssignment(std::string callsign, std::string unit, std::string flightRules) const
-            -> UKControllerPlugin::Squawk::ApiSquawkAllocation override;
+        [[nodiscard]] auto CreateLocalSquawkAssignment(std::string callsign, std::string unit, std::string flightRules)
+            const -> UKControllerPlugin::Squawk::ApiSquawkAllocation override;
         [[nodiscard]] auto CheckApiAuthorisation() const -> bool override;
         void DeleteSquawkAssignment(std::string callsign) const override;
         [[nodiscard]] auto FetchRemoteFile(std::string uri) const -> std::string override;
-        [[nodiscard]] auto GetAssignedSquawk(std::string callsign) const
-            -> UKControllerPlugin::Squawk::ApiSquawkAllocation override;
+        [[nodiscard]] auto
+        GetAssignedSquawk(std::string callsign) const -> UKControllerPlugin::Squawk::ApiSquawkAllocation override;
         [[nodiscard]] auto GetDependencyList() const -> nlohmann::json override;
         [[nodiscard]] auto GetHoldDependency() const -> nlohmann::json override;
         [[nodiscard]] auto GetAssignedHolds() const -> nlohmann::json override;
@@ -68,8 +67,10 @@ namespace UKControllerPlugin::Api {
             int expiresInSeconds,
             const std::string& remarks) const override;
         [[nodiscard]] auto RequestDepartureRelease(
-            std::string callsign, int requestingControllerId, int targetControllerId, int expiresInSeconds) const
-            -> nlohmann::json override;
+            std::string callsign,
+            int requestingControllerId,
+            int targetControllerId,
+            int expiresInSeconds) const -> nlohmann::json override;
         void CancelDepartureReleaseRequest(int releaseId) const override;
         void ReadNotification(int id) const override;
         [[nodiscard]] auto CreatePrenoteMessage(

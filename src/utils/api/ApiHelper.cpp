@@ -66,8 +66,8 @@ namespace UKControllerPlugin::Api {
         return ApiResponseFactory::Create(response);
     }
 
-    auto ApiHelper::ProcessSquawkResponse(const ApiResponse& response, const std::string& callsign)
-        -> ApiSquawkAllocation
+    auto
+    ApiHelper::ProcessSquawkResponse(const ApiResponse& response, const std::string& callsign) -> ApiSquawkAllocation
     {
         nlohmann::json responseJson = response.GetRawData();
 
@@ -93,9 +93,8 @@ namespace UKControllerPlugin::Api {
     /*
         Creates or updates a general squawk assignment (generates a new squawk for the aircraft).
     */
-    auto
-    ApiHelper::CreateGeneralSquawkAssignment(std::string callsign, std::string origin, std::string destination) const
-        -> ApiSquawkAllocation
+    auto ApiHelper::CreateGeneralSquawkAssignment(
+        std::string callsign, std::string origin, std::string destination) const -> ApiSquawkAllocation
     {
 
         return this->ProcessSquawkResponse(
@@ -292,8 +291,10 @@ namespace UKControllerPlugin::Api {
     }
 
     auto ApiHelper::RequestDepartureRelease(
-        std::string callsign, int requestingControllerId, int targetControllerId, int expiresInSeconds) const
-        -> nlohmann::json
+        std::string callsign,
+        int requestingControllerId,
+        int targetControllerId,
+        int expiresInSeconds) const -> nlohmann::json
     {
         return this
             ->MakeApiRequest(this->requestBuilder.BuildDepartureReleaseRequest(

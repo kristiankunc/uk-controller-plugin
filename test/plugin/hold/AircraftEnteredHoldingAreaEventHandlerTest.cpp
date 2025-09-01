@@ -37,8 +37,8 @@ namespace UKControllerPluginTest::Hold {
          * have to repeat ourselves
          */
         [[nodiscard]] static auto MakePushEvent(
-            const nlohmann::json& overridingData = nlohmann::json::object(), const std::string& keyToRemove = "")
-            -> PushEvent
+            const nlohmann::json& overridingData = nlohmann::json::object(),
+            const std::string& keyToRemove = "") -> PushEvent
         {
             nlohmann::json eventData{
                 {"callsign", "BAW123"}, {"navaid_id", 1}, {"entered_at", "2021-01-09T01:02:03.000000Z"}};

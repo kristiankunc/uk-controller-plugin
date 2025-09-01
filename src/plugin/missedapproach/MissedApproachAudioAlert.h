@@ -32,8 +32,8 @@ namespace UKControllerPlugin::MissedApproach {
         void Play(const std::shared_ptr<class MissedApproach>& missedApproach) const;
 
         private:
-        [[nodiscard]] auto DestinationIsAlwaysAlert(const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const
-            -> bool;
+        [[nodiscard]] auto
+        DestinationIsAlwaysAlert(const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const -> bool;
         [[nodiscard]] auto
         UserProvidingServicesAtDestination(const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const -> bool;
         [[nodiscard]] auto ShouldPlay(const std::shared_ptr<class MissedApproach>& missedApproach) const -> bool;

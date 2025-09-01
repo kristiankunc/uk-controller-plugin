@@ -141,8 +141,9 @@ namespace UKControllerPlugin::Prenote {
     }
 
     auto SendPrenoteMenu::PrenoteMessageExists(
-        Euroscope::EuroScopeCFlightPlanInterface& flightplan, int sendingControllerId, int targetControllerId) const
-        -> bool
+        Euroscope::EuroScopeCFlightPlanInterface& flightplan,
+        int sendingControllerId,
+        int targetControllerId) const -> bool
     {
         return this->messages->FirstWhere(
                    [&flightplan, &targetControllerId, &sendingControllerId](

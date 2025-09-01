@@ -19,22 +19,24 @@ namespace UKControllerPlugin::Api {
         [[nodiscard]] auto BuildAuthCheckRequest() const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildDependencyListRequest() const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildGetUriRequest(std::string uri) const -> UKControllerPlugin::Curl::CurlRequest;
-        [[nodiscard]] auto BuildSquawkAssignmentCheckRequest(const std::string& callsign) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+        [[nodiscard]] auto
+        BuildSquawkAssignmentCheckRequest(const std::string& callsign) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildSquawkAssignmentDeletionRequest(const std::string& callsign) const
             -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildLocalSquawkAssignmentRequest(
-            const std::string& callsign, const std::string& unit, const std::string& flightRules) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+            const std::string& callsign,
+            const std::string& unit,
+            const std::string& flightRules) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildGeneralSquawkAssignmentRequest(
-            const std::string& callsign, const std::string& origin, const std::string& destination) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+            const std::string& callsign,
+            const std::string& origin,
+            const std::string& destination) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildHoldDependencyRequest() const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildAllAssignedHoldsRequest() const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildSetAssignedHoldRequest(std::string callsign, std::string navaid) const
             -> UKControllerPlugin::Curl::CurlRequest;
-        [[nodiscard]] auto BuildDeleteAssignedHoldRequest(const std::string& callsign) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+        [[nodiscard]] auto
+        BuildDeleteAssignedHoldRequest(const std::string& callsign) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] static auto BuildRemoteFileRequest(std::string uri) -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildMinStackLevelRequest() const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildRegionalPressureRequest() const -> UKControllerPlugin::Curl::CurlRequest;
@@ -63,8 +65,8 @@ namespace UKControllerPlugin::Api {
         [[nodiscard]] auto BuildLatestGithubVersionRequest(const std::string& releaseChannel) const
             -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildPluginEventSyncRequest() const -> UKControllerPlugin::Curl::CurlRequest;
-        [[nodiscard]] auto BuildGetLatestPluginEventsRequest(int lastEventId) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+        [[nodiscard]] auto
+        BuildGetLatestPluginEventsRequest(int lastEventId) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildAcknowledgeDepartureReleaseRequest(int releaseId, int controllerPositionId) const
             -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto
@@ -77,8 +79,10 @@ namespace UKControllerPlugin::Api {
             int expiresInSeconds,
             const std::string& remarks) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildDepartureReleaseRequest(
-            const std::string& callsign, int requestingControllerId, int targetControllerId, int expiresInSeconds) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+            const std::string& callsign,
+            int requestingControllerId,
+            int targetControllerId,
+            int expiresInSeconds) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildCancelReleaseRequest(int releaseId) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildCreatePrenoteMessageRequest(
             const std::string& callsign,
@@ -90,18 +94,18 @@ namespace UKControllerPlugin::Api {
             int requestExpiry) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildAcknowledgePrenoteMessageRequest(int messageId, int controllerId) const
             -> UKControllerPlugin::Curl::CurlRequest;
-        [[nodiscard]] auto BuildDeletePrenoteMessageRequest(int messageId) const
-            -> UKControllerPlugin::Curl::CurlRequest;
-        [[nodiscard]] auto BuildMissedApproachMessage(const std::string& callsign) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+        [[nodiscard]] auto
+        BuildDeletePrenoteMessageRequest(int messageId) const -> UKControllerPlugin::Curl::CurlRequest;
+        [[nodiscard]] auto
+        BuildMissedApproachMessage(const std::string& callsign) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildMissedApproachAcknowledgeMessage(int id, const std::string& remarks) const
             -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildGetAllMetarsRequest() const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto GetApiDomain() const -> const std::string&;
 
         private:
-        [[nodiscard]] auto AddCommonHeaders(UKControllerPlugin::Curl::CurlRequest request) const
-            -> UKControllerPlugin::Curl::CurlRequest;
+        [[nodiscard]] auto
+        AddCommonHeaders(UKControllerPlugin::Curl::CurlRequest request) const -> UKControllerPlugin::Curl::CurlRequest;
         [[nodiscard]] auto BuildUrl(const std::string uri) const -> std::string;
 
         // The type string to send in the payload if we want a general squawk

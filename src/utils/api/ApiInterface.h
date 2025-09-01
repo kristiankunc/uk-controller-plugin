@@ -26,8 +26,8 @@ namespace UKControllerPlugin::Api {
         virtual void DeleteSquawkAssignment(std::string callsign) const = 0;
         [[nodiscard]] virtual auto GetDependencyList() const -> nlohmann::json = 0;
         [[nodiscard]] virtual auto FetchRemoteFile(std::string uri) const -> std::string = 0;
-        [[nodiscard]] virtual auto GetAssignedSquawk(std::string callsign) const
-            -> UKControllerPlugin::Squawk::ApiSquawkAllocation = 0;
+        [[nodiscard]] virtual auto
+        GetAssignedSquawk(std::string callsign) const -> UKControllerPlugin::Squawk::ApiSquawkAllocation = 0;
         [[nodiscard]] virtual auto GetHoldDependency() const -> nlohmann::json = 0;
         [[nodiscard]] virtual auto GetAssignedHolds() const -> nlohmann::json = 0;
         virtual void AssignAircraftToHold(std::string callsign, std::string navaid) const = 0;
@@ -35,8 +35,8 @@ namespace UKControllerPlugin::Api {
         [[nodiscard]] virtual auto GetMinStackLevels() const -> nlohmann::json = 0;
         [[nodiscard]] virtual auto GetRegionalPressures() const -> nlohmann::json = 0;
         [[nodiscard]] virtual auto GetUri(std::string uri) const -> nlohmann::json = 0;
-        [[nodiscard]] virtual auto SearchSrd(UKControllerPlugin::Srd::SrdSearchParameters params) const
-            -> nlohmann::json = 0;
+        [[nodiscard]] virtual auto
+        SearchSrd(UKControllerPlugin::Srd::SrdSearchParameters params) const -> nlohmann::json = 0;
         [[nodiscard]] virtual auto GetAssignedStands() const -> nlohmann::json = 0;
         virtual void AssignStandToAircraft(std::string callsign, int standId) const = 0;
         virtual void DeleteStandAssignmentForAircraft(std::string callsign) const = 0;
@@ -65,8 +65,10 @@ namespace UKControllerPlugin::Api {
             int expiresInSeconds,
             const std::string& remarks) const = 0;
         [[nodiscard]] virtual auto RequestDepartureRelease(
-            std::string callsign, int requestingControllerId, int targetControllerId, int expiresInSeconds) const
-            -> nlohmann::json = 0;
+            std::string callsign,
+            int requestingControllerId,
+            int targetControllerId,
+            int expiresInSeconds) const -> nlohmann::json = 0;
         virtual void CancelDepartureReleaseRequest(int releaseId) const = 0;
         virtual void ReadNotification(int id) const = 0;
         [[nodiscard]] virtual auto GetUpdateDetails(const std::string& releaseChannel) const -> nlohmann::json = 0;

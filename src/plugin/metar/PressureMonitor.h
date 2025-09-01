@@ -30,8 +30,8 @@ namespace UKControllerPlugin::Metar {
         void UserSettingsUpdated(UKControllerPlugin::Euroscope::UserSetting& userSettings) override;
 
         private:
-        [[nodiscard]] auto PressureHasUpdated(const std::string& airfield, const PressureComponent& pressure) const
-            -> bool;
+        [[nodiscard]] auto
+        PressureHasUpdated(const std::string& airfield, const PressureComponent& pressure) const -> bool;
         void SendNotificationIfRequired(const std::string& airfield, const PressureComponent& pressure) const;
 
         // Whether or not to send notifications.

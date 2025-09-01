@@ -21,9 +21,8 @@ namespace UKControllerPluginUtils::Api {
 
         private:
         [[nodiscard]] static auto ResponseSuccessful(const UKControllerPlugin::Curl::CurlResponse& response) -> bool;
-        [[nodiscard]] static auto
-        ParseResponseBody(const ApiRequestData& data, const UKControllerPlugin::Curl::CurlResponse& response)
-            -> nlohmann::json;
+        [[nodiscard]] static auto ParseResponseBody(
+            const ApiRequestData& data, const UKControllerPlugin::Curl::CurlResponse& response) -> nlohmann::json;
 
         // For making the cURL requests
         UKControllerPlugin::Curl::CurlInterface& curl;

@@ -38,14 +38,14 @@ namespace UKControllerPlugin::Ownership {
         [[nodiscard]] static auto ServiceProviderMatchingConditionExists(
             const std::vector<std::shared_ptr<ServiceProvision>>& providers,
             const std::function<bool(const std::shared_ptr<ServiceProvision>& provider)>& predicate) -> bool;
-        [[nodiscard]] static auto MapServiceProvisionToString(const std::shared_ptr<ServiceProvision>& provision)
-            -> std::string;
+        [[nodiscard]] static auto
+        MapServiceProvisionToString(const std::shared_ptr<ServiceProvision>& provision) -> std::string;
         static void LogNewServiceProvision(const std::string& icao, const std::shared_ptr<ServiceProvision>& provision);
         static void
         LogRemovedServiceProvision(const std::string& icao, const std::shared_ptr<ServiceProvision>& provision);
         [[nodiscard]] auto GetActiveControllersInAirfieldTopdownOrder(
-            const std::string& icao, const std::shared_ptr<Airfield::AirfieldModel>& airfield)
-            -> std::vector<std::string>;
+            const std::string& icao,
+            const std::shared_ptr<Airfield::AirfieldModel>& airfield) -> std::vector<std::string>;
         [[nodiscard]] auto GetServiceProvidersAtAirfield(const std::vector<std::string>& controllers)
             -> std::vector<std::shared_ptr<ServiceProvision>>;
         void

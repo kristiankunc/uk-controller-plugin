@@ -44,8 +44,8 @@ namespace UKControllerPlugin::Squawk {
             UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan,
             UKControllerPlugin::Euroscope::EuroScopeCRadarTargetInterface& radarTarget) const -> bool;
         auto DeleteApiSquawkAndSetTo(
-            const std::string& squawk, UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan)
-            -> bool override;
+            const std::string& squawk,
+            UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan) -> bool override;
         auto ForceGeneralSquawkForAircraft(
             UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan,
             UKControllerPlugin::Euroscope::EuroScopeCRadarTargetInterface& radarTarget) -> bool override;
@@ -64,12 +64,10 @@ namespace UKControllerPlugin::Squawk {
 
         private:
         [[nodiscard]] auto GetSquawkAssignment(const std::string& callsign) const -> bool;
-        [[nodiscard]] auto
-        CreateGeneralSquawkAssignment(const std::string& callsign, std::string origin, std::string destination) const
-            -> bool;
-        [[nodiscard]] auto
-        CreateLocalSquawkAssignment(const std::string& callsign, std::string unit, std::string flightRules) const
-            -> bool;
+        [[nodiscard]] auto CreateGeneralSquawkAssignment(
+            const std::string& callsign, std::string origin, std::string destination) const -> bool;
+        [[nodiscard]] auto CreateLocalSquawkAssignment(
+            const std::string& callsign, std::string unit, std::string flightRules) const -> bool;
         void EndSquawkUpdate(std::string callsign);
         auto StartSquawkUpdate(
             UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan,

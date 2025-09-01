@@ -25,21 +25,21 @@ namespace UKControllerPluginUtils::Collection {
         [[nodiscard]] auto end()
             -> CollectionIterator<KeyType, ValueType, typename std::map<KeyType, std::shared_ptr<ValueType>>::iterator>;
         [[nodiscard]] auto cbegin() const -> CollectionIterator<
-            KeyType,
-            ValueType,
-            typename std::map<KeyType, std::shared_ptr<ValueType>>::const_iterator>;
+                                              KeyType,
+                                              ValueType,
+                                              typename std::map<KeyType, std::shared_ptr<ValueType>>::const_iterator>;
         [[nodiscard]] auto cend() const -> CollectionIterator<
-            KeyType,
-            ValueType,
-            typename std::map<KeyType, std::shared_ptr<ValueType>>::const_iterator>;
+                                            KeyType,
+                                            ValueType,
+                                            typename std::map<KeyType, std::shared_ptr<ValueType>>::const_iterator>;
         [[nodiscard]] auto rbegin() -> CollectionIterator<
-            KeyType,
-            ValueType,
-            typename std::map<KeyType, std::shared_ptr<ValueType>>::reverse_iterator>;
+                                        KeyType,
+                                        ValueType,
+                                        typename std::map<KeyType, std::shared_ptr<ValueType>>::reverse_iterator>;
         [[nodiscard]] auto rend() -> CollectionIterator<
-            KeyType,
-            ValueType,
-            typename std::map<KeyType, std::shared_ptr<ValueType>>::reverse_iterator>;
+                                      KeyType,
+                                      ValueType,
+                                      typename std::map<KeyType, std::shared_ptr<ValueType>>::reverse_iterator>;
 
         private:
         [[nodiscard]] auto GetLock() const -> std::lock_guard<std::recursive_mutex>

@@ -22,4 +22,4 @@ namespace UKControllerPlugin {
             std::set<std::shared_ptr<UKControllerPlugin::Controller::HandoffEventHandlerInterface>> eventHandlers;
         };
     }; // namespace Controller
-};     // namespace UKControllerPlugin
+}; // namespace UKControllerPlugin

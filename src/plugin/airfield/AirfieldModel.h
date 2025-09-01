@@ -33,8 +33,8 @@ namespace UKControllerPlugin::Airfield {
         [[nodiscard]] auto Id() const -> int;
         [[nodiscard]] auto Icao() const -> std::string;
         [[nodiscard]] auto TopDownOrder() const -> const Controller::ControllerPositionHierarchy&;
-        [[nodiscard]] auto AirfieldPairingPrenotes() const
-            -> const std::vector<std::shared_ptr<Prenote::PairedAirfieldPrenote>>&;
+        [[nodiscard]] auto
+        AirfieldPairingPrenotes() const -> const std::vector<std::shared_ptr<Prenote::PairedAirfieldPrenote>>&;
         [[nodiscard]] auto HasDefaultHandoff() const -> bool;
         [[nodiscard]] auto DefaultHandoff() const -> int;
         [[nodiscard]] auto WakeScheme() const -> int;

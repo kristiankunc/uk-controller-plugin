@@ -28,9 +28,8 @@ namespace UKControllerPlugin::Handoff {
      * nothing to map to, resolve to unicom anyway... We'll need a flightplan change to be able to attempt
      * it again.
      */
-    auto
-    DefaultDepartureHandoffResolutionStrategy::Resolve(const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const
-        -> std::shared_ptr<const ResolvedHandoff>
+    auto DefaultDepartureHandoffResolutionStrategy::Resolve(
+        const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const -> std::shared_ptr<const ResolvedHandoff>
     {
         std::shared_ptr<Controller::ControllerPosition> controller = nullptr;
 

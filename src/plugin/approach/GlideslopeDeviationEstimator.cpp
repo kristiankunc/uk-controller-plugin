@@ -5,8 +5,8 @@
 namespace UKControllerPlugin::Approach {
 
     auto GlideslopeDeviationEstimator::CalculateGlideslopeDeviation(
-        const Euroscope::EuroScopeCRadarTargetInterface& radarTarget, const Runway::Runway& runway) const
-        -> GlideslopeDeviation
+        const Euroscope::EuroScopeCRadarTargetInterface& radarTarget,
+        const Runway::Runway& runway) const -> GlideslopeDeviation
     {
         // Calculate the slope of each line
         const auto runwaySlope = runway.RunwayHeadingLineSlope();

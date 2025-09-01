@@ -27,8 +27,8 @@ namespace UKControllerPlugin::Approach {
             const Airfield::AirfieldCollection& airfields,
             const Wake::WakeCategoryMapperCollection& wakeMappers,
             Euroscope::EuroscopePluginLoopbackInterface& plugin);
-        [[nodiscard]] auto Calculate(const std::string& airfield, const ApproachSequencedAircraft& aircraft) const
-            -> double;
+        [[nodiscard]] auto
+        Calculate(const std::string& airfield, const ApproachSequencedAircraft& aircraft) const -> double;
         [[nodiscard]] auto AirfieldMinimumSeparation(const std::string& airfield) const -> double;
         [[nodiscard]] static auto NoSpacing() -> double;
 

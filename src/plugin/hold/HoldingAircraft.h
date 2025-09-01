@@ -15,8 +15,8 @@ namespace UKControllerPlugin::Hold {
         void AddProximityHold(std::shared_ptr<ProximityHold> hold);
         [[nodiscard]] auto GetAssignedHold() const -> std::string;
         [[nodiscard]] auto GetCallsign() const -> std::string;
-        [[nodiscard]] auto GetProximityHolds() const
-            -> const std::set<std::shared_ptr<ProximityHold>, CompareProximityHolds>&;
+        [[nodiscard]] auto
+        GetProximityHolds() const -> const std::set<std::shared_ptr<ProximityHold>, CompareProximityHolds>&;
         [[nodiscard]] auto GetProximityHold(const std::string& hold) const -> std::shared_ptr<ProximityHold>;
         [[nodiscard]] auto IsInAnyHold() const -> bool;
         [[nodiscard]] auto IsInHold(const std::string& hold) const -> bool;

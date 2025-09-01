@@ -31,8 +31,8 @@ namespace UKControllerPlugin::Integration {
         }
     }
 
-    auto IntegrationDataInitialisers::HasInitialiser(std::shared_ptr<IntegrationDataInitialiser> initialiser) const
-        -> bool
+    auto
+    IntegrationDataInitialisers::HasInitialiser(std::shared_ptr<IntegrationDataInitialiser> initialiser) const -> bool
     {
         return std::find(initialisers.begin(), initialisers.end(), initialiser) != initialisers.cend();
     }

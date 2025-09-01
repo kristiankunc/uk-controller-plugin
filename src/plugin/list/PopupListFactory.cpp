@@ -11,9 +11,8 @@ namespace UKControllerPlugin::List {
     {
     }
 
-    auto
-    PopupListFactory::Create(std::shared_ptr<ListItemProviderInterface> provider, const std::string& description) const
-        -> std::shared_ptr<PopupListInterface>
+    auto PopupListFactory::Create(std::shared_ptr<ListItemProviderInterface> provider, const std::string& description)
+        const -> std::shared_ptr<PopupListInterface>
     {
         const auto callbackId = functionHandler.ReserveNextDynamicFunctionId();
         auto selectionList = std::make_shared<PopupList>(provider, plugin, callbackId);

@@ -88,8 +88,8 @@ namespace UKControllerPlugin::Metar {
         this->userMessager.SendMessageToUser(PressureChangeMessage(airfield, *this->pressures.at(airfield), pressure));
     }
 
-    auto PressureMonitor::PressureHasUpdated(const std::string& airfield, const PressureComponent& pressure) const
-        -> bool
+    auto
+    PressureMonitor::PressureHasUpdated(const std::string& airfield, const PressureComponent& pressure) const -> bool
     {
         return this->pressures.count(airfield) != 0 &&
                this->pressures.at(airfield)->QnhHectopascals() != pressure.QnhHectopascals();

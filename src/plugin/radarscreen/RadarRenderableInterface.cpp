@@ -6,8 +6,8 @@ namespace UKControllerPlugin::RadarScreen {
     RadarRenderableInterface::RadarRenderableInterface(const RadarRenderableInterface&) = default;
     RadarRenderableInterface::RadarRenderableInterface(RadarRenderableInterface&&) noexcept = default;
     auto RadarRenderableInterface::operator=(const RadarRenderableInterface&) -> RadarRenderableInterface& = default;
-    auto RadarRenderableInterface::operator=(RadarRenderableInterface&&) noexcept
-        -> RadarRenderableInterface& = default;
+    auto
+    RadarRenderableInterface::operator=(RadarRenderableInterface&&) noexcept -> RadarRenderableInterface& = default;
 
     /**
      * Some renderers, such as the Departure Release Request List have no left click functionality.

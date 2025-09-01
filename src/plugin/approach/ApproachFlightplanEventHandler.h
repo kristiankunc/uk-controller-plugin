@@ -13,7 +13,7 @@ namespace UKControllerPlugin::Approach {
             Euroscope::EuroScopeCRadarTargetInterface& radarTarget) override;
         void FlightPlanDisconnectEvent(Euroscope::EuroScopeCFlightPlanInterface& flightPlan) override;
         void
-        ControllerFlightPlanDataEvent(Euroscope::EuroScopeCFlightPlanInterface& flightPlan, int dataType) override{};
+        ControllerFlightPlanDataEvent(Euroscope::EuroScopeCFlightPlanInterface& flightPlan, int dataType) override {};
 
         private:
         // Sequences approaches

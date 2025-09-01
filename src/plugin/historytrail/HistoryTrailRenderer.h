@@ -156,12 +156,12 @@ namespace UKControllerPlugin::HistoryTrail {
         const int defaultMaxAltitude = 99999;
 
         private:
-        [[nodiscard]] auto GetDoDotFunction() const
-            -> std::function<void(Windows::GdiGraphicsInterface&, const Gdiplus::RectF&)>;
-        [[nodiscard]] auto GetFillDotFunction() const
-            -> std::function<void(Windows::GdiGraphicsInterface&, const Gdiplus::RectF&)>;
-        [[nodiscard]] auto GetDrawDotFunction() const
-            -> std::function<void(Windows::GdiGraphicsInterface&, const Gdiplus::RectF&)>;
+        [[nodiscard]] auto
+        GetDoDotFunction() const -> std::function<void(Windows::GdiGraphicsInterface&, const Gdiplus::RectF&)>;
+        [[nodiscard]] auto
+        GetFillDotFunction() const -> std::function<void(Windows::GdiGraphicsInterface&, const Gdiplus::RectF&)>;
+        [[nodiscard]] auto
+        GetDrawDotFunction() const -> std::function<void(Windows::GdiGraphicsInterface&, const Gdiplus::RectF&)>;
 
         // Handles dialogs
         const Dialog::DialogManager& dialogManager;

@@ -17,8 +17,8 @@ namespace UKControllerPlugin {
     /*
      * Download and update the Updater binary. Do this without a cURL time limit.
      */
-    auto DownloadUpdater(nlohmann::json updateData, Windows::WinApiInterface& windows, Curl::CurlInterface& curl)
-        -> bool
+    auto
+    DownloadUpdater(nlohmann::json updateData, Windows::WinApiInterface& windows, Curl::CurlInterface& curl) -> bool
     {
         LogInfo("Downloading updater library");
         CurlRequest updaterRequest(updateData.at("updater_download_url").get<std::string>(), CurlRequest::METHOD_GET);
@@ -29,8 +29,8 @@ namespace UKControllerPlugin {
     /*
      * Download and update the Core binary. Do this without a cURL time limit.
      */
-    auto DownloadCoreLibrary(nlohmann::json updateData, Windows::WinApiInterface& windows, Curl::CurlInterface& curl)
-        -> bool
+    auto
+    DownloadCoreLibrary(nlohmann::json updateData, Windows::WinApiInterface& windows, Curl::CurlInterface& curl) -> bool
     {
         LogInfo("Downloading core library");
         CurlRequest coreRequest(updateData.at("core_download_url").get<std::string>(), CurlRequest::METHOD_GET);
@@ -54,8 +54,10 @@ namespace UKControllerPlugin {
     }
 
     auto UpdateBinary(
-        Curl::CurlInterface& curl, CurlRequest& request, Windows::WinApiInterface& windows, std::wstring targetFile)
-        -> bool
+        Curl::CurlInterface& curl,
+        CurlRequest& request,
+        Windows::WinApiInterface& windows,
+        std::wstring targetFile) -> bool
     {
         CurlResponse response = curl.MakeCurlRequest(request);
 

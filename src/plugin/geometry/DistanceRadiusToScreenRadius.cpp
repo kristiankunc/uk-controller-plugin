@@ -3,9 +3,8 @@
 
 namespace UKControllerPlugin::Geometry {
 
-    auto
-    ScreenRadiusFromDistance(double distanceInNauticalMiles, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen)
-        -> double
+    auto ScreenRadiusFromDistance(
+        double distanceInNauticalMiles, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen) -> double
     {
         auto viewport = radarScreen.GetRadarViewport();
 

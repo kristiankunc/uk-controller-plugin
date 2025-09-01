@@ -66,9 +66,8 @@ namespace UKControllerPlugin::Wake {
             Windows::GdiGraphicsInterface& graphics, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen);
         void RenderDividingLine(Windows::GdiGraphicsInterface& graphics);
         void RenderSeparationRequirement(Windows::GdiGraphicsInterface& graphics);
-        [[nodiscard]] auto
-        RelevantInterval(const WakeCategory& lead, const WakeCategory& following, bool intermediate) const
-            -> std::shared_ptr<WakeIntervalInterface>;
+        [[nodiscard]] auto RelevantInterval(const WakeCategory& lead, const WakeCategory& following, bool intermediate)
+            const -> std::shared_ptr<WakeIntervalInterface>;
 
         // The coordinate of the top left of the window
         inline static const POINT DEFAULT_WINDOW_POSITION{200, 200};

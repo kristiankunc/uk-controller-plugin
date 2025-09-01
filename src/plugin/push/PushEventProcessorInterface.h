@@ -27,7 +27,7 @@ namespace UKControllerPlugin::Push {
             When the initial sync of plugin events is made, let processors know
             so that they can pre-load initial data, etc.
         */
-        virtual void PluginEventsSynced(){};
+        virtual void PluginEventsSynced() {};
 
         /*
             Return the channels that we want to subscribe to with this processor

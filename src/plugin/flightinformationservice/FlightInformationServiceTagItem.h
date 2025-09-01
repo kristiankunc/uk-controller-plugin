@@ -25,10 +25,11 @@ namespace UKControllerPlugin {
 
             void FlightPlanEvent(
                 Euroscope::EuroScopeCFlightPlanInterface& flightPlan,
-                Euroscope::EuroScopeCRadarTargetInterface& radarTarget) override{};
+                Euroscope::EuroScopeCRadarTargetInterface& radarTarget) override {};
             void FlightPlanDisconnectEvent(Euroscope::EuroScopeCFlightPlanInterface& flightPlan) override;
-            void ControllerFlightPlanDataEvent(
-                Euroscope::EuroScopeCFlightPlanInterface& flightPlan, int dataType) override{};
+            void
+            ControllerFlightPlanDataEvent(Euroscope::EuroScopeCFlightPlanInterface& flightPlan, int dataType) override {
+            };
 
             void DisplayFlightInformationServicesMenu(
                 Euroscope::EuroScopeCFlightPlanInterface& flightplan,

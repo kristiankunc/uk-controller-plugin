@@ -350,8 +350,8 @@ namespace UKControllerPlugin::HistoryTrail {
     {
     }
 
-    auto HistoryTrailRenderer::GetDoDotFunction() const
-        -> std::function<void(GdiGraphicsInterface&, const Gdiplus::RectF&)>
+    auto
+    HistoryTrailRenderer::GetDoDotFunction() const -> std::function<void(GdiGraphicsInterface&, const Gdiplus::RectF&)>
     {
         return this->filledDots && this->historyTrailType != this->trailTypeLine ? this->GetFillDotFunction()
                                                                                  : this->GetDrawDotFunction();

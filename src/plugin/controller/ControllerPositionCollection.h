@@ -12,8 +12,8 @@ namespace UKControllerPlugin::Controller {
         public:
         bool AddPosition(const std::shared_ptr<ControllerPosition>& position);
         [[nodiscard]] auto FetchPositionById(int id) const -> std::shared_ptr<ControllerPosition>;
-        [[nodiscard]] auto FetchPositionByCallsign(const std::string& callsign) const
-            -> std::shared_ptr<ControllerPosition>;
+        [[nodiscard]] auto
+        FetchPositionByCallsign(const std::string& callsign) const -> std::shared_ptr<ControllerPosition>;
         [[nodiscard]] auto
         FetchPositionByFacilityTypeAndFrequency(std::string facility, const std::string& type, double frequency) const
             -> std::shared_ptr<ControllerPosition>;

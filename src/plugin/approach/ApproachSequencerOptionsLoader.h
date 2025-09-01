@@ -32,8 +32,8 @@ namespace UKControllerPlugin::Approach {
         [[nodiscard]] static auto MakeTargetDescription(const std::string& airfield) -> std::string;
         [[nodiscard]] static auto MakeSeparationDescription(const std::string& airfield) -> std::string;
         [[nodiscard]] static auto MakeKeyBase(const std::string& airfield, const std::string& item) -> std::string;
-        [[nodiscard]] static auto MakeDescriptionBase(const std::string& airfield, const std::string& item)
-            -> std::string;
+        [[nodiscard]] static auto
+        MakeDescriptionBase(const std::string& airfield, const std::string& item) -> std::string;
 
         // Where options are stored whilst plugin is running
         ApproachSequencerOptions& options;

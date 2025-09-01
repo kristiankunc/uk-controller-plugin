@@ -20,8 +20,8 @@ namespace UKControllerPlugin::MinStack {
         void AcknowledgeMsl(const std::string& key);
         void AddMsl(const std::string& key, std::string type, std::string name, unsigned int msl);
         [[nodiscard]] auto GetAllMslKeys() const -> std::set<std::string>;
-        [[nodiscard]] auto GetMinStackLevel(const std::string& key) const
-            -> const UKControllerPlugin::MinStack::MinStackLevel&;
+        [[nodiscard]] auto
+        GetMinStackLevel(const std::string& key) const -> const UKControllerPlugin::MinStack::MinStackLevel&;
         [[nodiscard]] static auto GetMslKeyAirfield(const std::string& airfield) -> std::string;
         [[nodiscard]] static auto GetMslKeyTma(const std::string& tma) -> std::string;
         [[nodiscard]] static auto GetNameFromKey(const std::string& key) -> std::string;
