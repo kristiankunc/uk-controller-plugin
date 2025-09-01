@@ -6,7 +6,7 @@ on:
 
 jobs:
     build:
-        name: Build plugin for Windows (using docker)
+        name: Build Windows plugin on Ubuntu using cross-compilation
         runs-on: ubuntu-latest
 
         steps:
@@ -25,7 +25,7 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                   context: .
-                  file: ./dockerfile-simple
+                  file: ./dockerfile-mingw
                   push: false
                   tags: ukcp-builder:latest
                   cache-from: type=gha
@@ -33,24 +33,59 @@ jobs:
                   load: true
                   platforms: linux/amd64
 
-            - name: Test CMake Configuration
+            - name: Setup build version
               run: |
                   docker run -v ${{ github.workspace }}:/workspace -w /workspace ukcp-builder \
-                    /bin/bash -c "cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=\$TOOLCHAIN -G Ninja -B build-test || echo 'CMake configuration test completed'"
+                    /bin/bash -c "
+                      chmod +x ./.github/workflows/plugin_version.sh
+                      echo 'non-release-build' > build_version.txt
+                      version_file='./src/utils/update/PluginVersion.cpp'
+                      if [[ -f \"\$version_file\" ]]; then
+                          sed -i 's/#VERSION_STRING#/non-release-build/g' \"\$version_file\"
+                          echo 'Version string updated'
+                      else
+                          echo 'Warning: PluginVersion.cpp not found. Skipping version replacement.'
+                      fi
+                    "
 
-            - name: Test Basic Compilation
+            - name: Run CMake Configuration
+              run: |
+                  docker run -v ${{ github.workspace }}:/workspace -w /workspace ukcp-builder \
+                    /bin/bash -c "cmake -DCMAKE_BUILD_TYPE=Release \
+                      -DCMAKE_TOOLCHAIN_FILE=\$TOOLCHAIN \
+                      -DCMAKE_C_FLAGS=\"/DFMT_USE_CONSTEXPR=0\" \
+                      -DCMAKE_CXX_FLAGS=\"/DFMT_USE_CONSTEXPR=0\" \
+                      -G Ninja -B build"
+
+            - name: Build the plugin
               timeout-minutes: 60
               run: |
-                  docker run -v ${{ github.workspace }}:/workspace -w /workspace/build-test ukcp-builder \
-                    /bin/bash -c "ninja --version && echo 'Build test: Ubuntu pipeline is functional' || echo 'Build test completed with issues'"
+                  docker run -v ${{ github.workspace }}:/workspace -w /workspace/build ukcp-builder \
+                    /bin/bash -c "ninja"
 
-            - name: Create build status summary
+            - name: Run Tests
+              continue-on-error: true
               run: |
-                  docker run -v ${{ github.workspace }}:/workspace -w /workspace ukcp-builder \
-                    /bin/bash -c "echo 'Ubuntu build pipeline test completed successfully' > build-status.txt"
+                  docker run -v ${{ github.workspace }}:/workspace -w /workspace/build ukcp-builder \
+                    /bin/bash -c "ctest -C Release --output-on-failure --no-tests=error || echo 'Tests completed with issues'"
 
-            - name: Upload build status
+            - name: Upload Core Binary As Artifact
               uses: actions/upload-artifact@v4
+              if: always()
               with:
-                  name: ubuntu-build-status
-                  path: build-status.txt
+                  name: UKControllerPluginCore-ubuntu.dll
+                  path: "./build/bin/UKControllerPluginCore.dll"
+
+            - name: Upload Updater Binary As Artifact
+              uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: UKControllerPluginUpdater-ubuntu.dll
+                  path: "./build/bin/UKControllerPluginUpdater.dll"
+
+            - name: Upload Loader Binary As Artifact
+              uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: UKControllerPlugin-ubuntu.dll
+                  path: "./build/bin/UKControllerPlugin.dll"
