@@ -25,7 +25,7 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                   context: .
-                  file: ./dockerfile-mingw
+                  file: ./dockerfile-ubuntu-build
                   push: false
                   tags: ukcp-builder:latest
                   cache-from: type=gha
@@ -53,8 +53,8 @@ jobs:
                   docker run -v ${{ github.workspace }}:/workspace -w /workspace ukcp-builder \
                     /bin/bash -c "cmake -DCMAKE_BUILD_TYPE=Release \
                       -DCMAKE_TOOLCHAIN_FILE=\$TOOLCHAIN \
-                      -DCMAKE_C_FLAGS=\"/DFMT_USE_CONSTEXPR=0\" \
-                      -DCMAKE_CXX_FLAGS=\"/DFMT_USE_CONSTEXPR=0\" \
+                      -DCMAKE_C_FLAGS=\"-DFMT_USE_CONSTEXPR=0\" \
+                      -DCMAKE_CXX_FLAGS=\"-DFMT_USE_CONSTEXPR=0\" \
                       -G Ninja -B build"
 
             - name: Build the plugin
