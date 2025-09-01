@@ -77,8 +77,8 @@ namespace UKControllerPlugin::IntentionCode {
         return pimpl->intentionCodes;
     }
 
-    auto IntentionCodeModuleFactory::IntentionCodeEventHandlers()
-        -> std::shared_ptr<IntentionCodeEventHandlerCollection>
+    auto
+    IntentionCodeModuleFactory::IntentionCodeEventHandlers() -> std::shared_ptr<IntentionCodeEventHandlerCollection>
     {
         if (!pimpl->intentionCodeEventHandlers) {
             pimpl->intentionCodeEventHandlers = std::make_shared<IntentionCodeEventHandlerCollection>();

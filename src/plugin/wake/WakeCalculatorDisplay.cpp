@@ -350,8 +350,9 @@ namespace UKControllerPlugin::Wake {
     }
 
     auto WakeCalculatorDisplay::RelevantInterval(
-        const WakeCategory& lead, const WakeCategory& following, bool intermediate) const
-        -> std::shared_ptr<WakeIntervalInterface>
+        const WakeCategory& lead,
+        const WakeCategory& following,
+        bool intermediate) const -> std::shared_ptr<WakeIntervalInterface>
     {
         return options->Departures()
                    ? static_cast<std::shared_ptr<WakeIntervalInterface>>(

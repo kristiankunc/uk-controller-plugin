@@ -12,7 +12,7 @@ namespace UKControllerPlugin::MissedApproach {
 
         auto operator()(const std::shared_ptr<MissedApproach>& missed, int id) const -> bool;
         auto operator()(int id, const std::shared_ptr<MissedApproach>& missed) const -> bool;
-        auto operator()(const std::shared_ptr<MissedApproach>& a, const std::shared_ptr<MissedApproach>& b) const
-            -> bool;
+        auto
+        operator()(const std::shared_ptr<MissedApproach>& a, const std::shared_ptr<MissedApproach>& b) const -> bool;
     };
 } // namespace UKControllerPlugin::MissedApproach

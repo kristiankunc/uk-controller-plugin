@@ -18,8 +18,8 @@ namespace UKControllerPlugin::Hold {
         this->ProcessData(message.data);
     }
 
-    auto AircraftEnteredHoldingAreaEventHandler::GetPushEventSubscriptions() const
-        -> std::set<Push::PushEventSubscription>
+    auto
+    AircraftEnteredHoldingAreaEventHandler::GetPushEventSubscriptions() const -> std::set<Push::PushEventSubscription>
     {
         return {{Push::PushEventSubscription::SUB_TYPE_EVENT, "hold.area-entered"}};
     }

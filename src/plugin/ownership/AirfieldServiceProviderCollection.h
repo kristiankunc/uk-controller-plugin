@@ -17,18 +17,18 @@ namespace UKControllerPlugin::Ownership {
         public:
         void SetProvidersForAirfield(const std::string& icao, std::vector<std::shared_ptr<ServiceProvision>> providers);
         [[nodiscard]] auto GetAirfieldsWhereUserIsProvidingDelivery() const -> std::vector<std::string>;
-        [[nodiscard]] auto GetAirfieldsWhereUserProvidingServices(ServiceType service) const
-            -> std::vector<std::string>;
-        [[nodiscard]] auto DeliveryProviderForAirfield(const std::string& icao) const
-            -> const std::shared_ptr<ServiceProvision>&;
+        [[nodiscard]] auto
+        GetAirfieldsWhereUserProvidingServices(ServiceType service) const -> std::vector<std::string>;
+        [[nodiscard]] auto
+        DeliveryProviderForAirfield(const std::string& icao) const -> const std::shared_ptr<ServiceProvision>&;
         [[nodiscard]] auto AirfieldHasDeliveryProvider(const std::string& icao) const -> bool;
         [[nodiscard]] auto DeliveryControlProvidedByUser(const std::string& icao) const -> bool;
         [[nodiscard]] auto GroundControlProvidedByUser(const std::string& icao) const -> bool;
         [[nodiscard]] auto FinalApproachControlProvidedByUser(const std::string& icao) const -> bool;
         [[nodiscard]] auto ApproachControlProvidedByUser(const std::string& icao) const -> bool;
         [[nodiscard]] auto TowerControlProvidedByUser(const std::string& icao) const -> bool;
-        [[nodiscard]] auto GetServiceProviders(const std::string& icao) const
-            -> const std::vector<std::shared_ptr<ServiceProvision>>&;
+        [[nodiscard]] auto
+        GetServiceProviders(const std::string& icao) const -> const std::vector<std::shared_ptr<ServiceProvision>>&;
         void Flush();
         void FlushForAirfield(const std::string& icao);
         [[nodiscard]] auto ServiceProvidedAtAirfield(const std::string& icao, ServiceType type) const -> bool;

@@ -108,8 +108,8 @@ namespace UKControllerPluginUtilsTest {
         }
 
         template <typename T>
-        auto GetStreamForEventType() const
-            -> const std::shared_ptr<UKControllerPluginUtils::EventHandler::EventStream<T>>
+        auto
+        GetStreamForEventType() const -> const std::shared_ptr<UKControllerPluginUtils::EventHandler::EventStream<T>>
         {
             return std::any_cast<std::shared_ptr<UKControllerPluginUtils::EventHandler::EventStream<T>>>(
                 UKControllerPluginUtils::EventHandler::EventBus::Bus().GetAnyStream(typeid(T)));

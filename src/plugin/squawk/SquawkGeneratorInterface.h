@@ -15,8 +15,8 @@ namespace UKControllerPlugin::Squawk {
         public:
         virtual ~SquawkGeneratorInterface() = default;
         virtual auto DeleteApiSquawkAndSetTo(
-            const std::string& squawk, UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan)
-            -> bool = 0;
+            const std::string& squawk,
+            UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan) -> bool = 0;
         virtual auto ForceGeneralSquawkForAircraft(
             UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightplan,
             UKControllerPlugin::Euroscope::EuroScopeCRadarTargetInterface& radarTarget) -> bool = 0;

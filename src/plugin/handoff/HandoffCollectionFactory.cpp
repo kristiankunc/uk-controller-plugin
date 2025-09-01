@@ -38,8 +38,8 @@ namespace UKControllerPlugin::Handoff {
     /*
         Validate a handoff order
     */
-    auto HandoffOrderValid(const nlohmann::json& order, const ControllerPositionHierarchyFactory& controllerFactory)
-        -> bool
+    auto
+    HandoffOrderValid(const nlohmann::json& order, const ControllerPositionHierarchyFactory& controllerFactory) -> bool
     {
         return order.is_object() && order.contains("id") && order.at("id").is_number_integer() &&
                order.contains("controller_positions") && order.at("controller_positions").is_array() &&

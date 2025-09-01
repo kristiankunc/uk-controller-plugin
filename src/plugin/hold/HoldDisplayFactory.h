@@ -34,8 +34,8 @@ namespace UKControllerPlugin {
                 const UKControllerPlugin::Hold::PublishedHoldCollection& holds,
                 const UKControllerPlugin::Dialog::DialogManager& dialogManager,
                 const Aircraft::CallsignSelectionListFactory& addAircraftListFactory);
-            [[nodiscard]] auto Create(std::string navaid) const
-                -> std::unique_ptr<UKControllerPlugin::Hold::HoldDisplay>;
+            [[nodiscard]] auto
+            Create(std::string navaid) const -> std::unique_ptr<UKControllerPlugin::Hold::HoldDisplay>;
 
             private:
             // The plugin instance

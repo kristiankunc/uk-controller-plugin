@@ -11,9 +11,9 @@ namespace UKControllerPluginTest::Metar {
     class PressureComponentFactoryTest : public testing::Test
     {
         public:
-        [[nodiscard]] static auto
-        GetJson(const nlohmann::json& overridingData = nlohmann::json::object(), const std::string& keyToRemove = "")
-            -> nlohmann::json
+        [[nodiscard]] static auto GetJson(
+            const nlohmann::json& overridingData = nlohmann::json::object(),
+            const std::string& keyToRemove = "") -> nlohmann::json
         {
             nlohmann::json json{
                 {"qnh", 1013}, {"qfe", 1007}, {"qnh_inhg", 29.92}, {"qfe_inhg", 28.21}, {"pressure_format", "hpa"}};

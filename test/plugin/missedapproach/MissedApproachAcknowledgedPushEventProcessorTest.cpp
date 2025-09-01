@@ -24,8 +24,8 @@ namespace UKControllerPluginTest::MissedApproach {
          * have to repeat ourselves
          */
         [[nodiscard]] static auto MakePushEvent(
-            const nlohmann::json& overridingData = nlohmann::json::object(), const std::string& keyToRemove = "")
-            -> PushEvent
+            const nlohmann::json& overridingData = nlohmann::json::object(),
+            const std::string& keyToRemove = "") -> PushEvent
         {
             nlohmann::json eventData{{"id", 1}, {"acknowledged_by", "EGLL_N_APP"}, {"remarks", "Hi."}};
             if (overridingData.is_object()) {

@@ -21,8 +21,8 @@ namespace UKControllerPlugin::IntentionCode {
         void FlightPlanDisconnectEvent(Euroscope::EuroScopeCFlightPlanInterface& flightPlan) override;
         void ControllerFlightPlanDataEvent(
             UKControllerPlugin::Euroscope::EuroScopeCFlightPlanInterface& flightPlan, int dataType) override;
-        [[nodiscard]] auto GetCacheEntryForCallsign(const std::string& callsign) const
-            -> std::shared_ptr<AircraftFirExit>;
+        [[nodiscard]] auto
+        GetCacheEntryForCallsign(const std::string& callsign) const -> std::shared_ptr<AircraftFirExit>;
         void RemoveCacheEntryForCallsign(const std::string& callsign);
         /*
             Generates the aircrafts FIR exit point data, or nullptr if there are none.

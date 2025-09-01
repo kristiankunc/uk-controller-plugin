@@ -68,8 +68,8 @@ namespace UKControllerPlugin::Euroscope {
     /*
         Returns a list of strings
     */
-    auto UserSetting::GetStringListEntry(std::string key, std::vector<std::string> defaultValue)
-        -> std::vector<std::string>
+    auto
+    UserSetting::GetStringListEntry(std::string key, std::vector<std::string> defaultValue) -> std::vector<std::string>
     {
         std::string value = this->userSettingProvider.GetKey(std::move(key));
 

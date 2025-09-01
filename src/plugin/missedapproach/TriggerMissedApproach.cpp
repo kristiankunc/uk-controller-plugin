@@ -142,8 +142,8 @@ namespace UKControllerPlugin::MissedApproach {
     }
 
     auto TriggerMissedApproach::AircraftElegibleForMissedApproach(
-        Euroscope::EuroScopeCFlightPlanInterface& flightplan, Euroscope::EuroScopeCRadarTargetInterface& radarTarget)
-        -> bool
+        Euroscope::EuroScopeCFlightPlanInterface& flightplan,
+        Euroscope::EuroScopeCRadarTargetInterface& radarTarget) -> bool
     {
         return flightplan.GetDistanceToDestination() < MAX_DISTANCE_FROM_DESTINATION &&
                radarTarget.GetGroundSpeed() > MIN_GROUNDSPEED && radarTarget.GetFlightLevel() < MAX_ALTITUDE;

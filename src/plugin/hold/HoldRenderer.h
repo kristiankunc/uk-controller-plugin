@@ -50,8 +50,8 @@ namespace UKControllerPlugin::Hold {
         private:
         [[nodiscard]] static auto GetHoldNameFromObjectDescription(const std::string& objectDescription) -> std::string;
         [[nodiscard]] static auto GetCallsignFromObjectDescription(const std::string& objectDescription) -> std::string;
-        [[nodiscard]] static auto GetButtonNameFromObjectDescription(const std::string& objectDescription)
-            -> std::string;
+        [[nodiscard]] static auto
+        GetButtonNameFromObjectDescription(const std::string& objectDescription) -> std::string;
 
         // Should the renderer render the holds?
         bool renderHolds = true;

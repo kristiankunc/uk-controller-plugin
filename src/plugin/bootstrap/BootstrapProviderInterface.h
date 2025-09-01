@@ -24,12 +24,12 @@ namespace UKControllerPlugin::Bootstrap {
     {
         public:
         virtual ~BootstrapProviderInterface() = default;
-        virtual void BootstrapPlugin(PersistenceContainer& container){};
+        virtual void BootstrapPlugin(PersistenceContainer& container) {};
         virtual void BootstrapRadarScreen(
             const PersistenceContainer& container,
             RadarScreen::RadarRenderableCollection& radarRenderables,
             RadarScreen::ConfigurableDisplayCollection& configurables,
             Euroscope::AsrEventHandlerCollection& asrHandlers,
-            const RadarScreen::MenuToggleableDisplayFactory& toggleableDisplayFactory){};
+            const RadarScreen::MenuToggleableDisplayFactory& toggleableDisplayFactory) {};
     };
 } // namespace UKControllerPlugin::Bootstrap

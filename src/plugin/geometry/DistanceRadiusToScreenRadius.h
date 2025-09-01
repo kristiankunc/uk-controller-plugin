@@ -5,7 +5,6 @@ namespace UKControllerPlugin::Euroscope {
 } // namespace UKControllerPlugin::Euroscope
 
 namespace UKControllerPlugin::Geometry {
-    [[nodiscard]] auto
-    ScreenRadiusFromDistance(double distanceInNauticalMiles, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen)
-        -> double;
+    [[nodiscard]] auto ScreenRadiusFromDistance(
+        double distanceInNauticalMiles, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen) -> double;
 } // namespace UKControllerPlugin::Geometry

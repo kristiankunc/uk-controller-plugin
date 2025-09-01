@@ -12,8 +12,8 @@ namespace UKControllerPlugin::Prenote {
             std::shared_ptr<PrenoteMessageCollection> prenotes,
             const PrenoteMessageEventHandlerCollection& eventHandlers);
         void ProcessPushEvent(const Push::PushEvent& message) override;
-        [[nodiscard]] auto GetPushEventSubscriptions() const
-            -> std::set<UKControllerPlugin::Push::PushEventSubscription> override;
+        [[nodiscard]] auto
+        GetPushEventSubscriptions() const -> std::set<UKControllerPlugin::Push::PushEventSubscription> override;
 
         private:
         [[nodiscard]] auto MessageValid(const nlohmann::json& message) const -> bool;

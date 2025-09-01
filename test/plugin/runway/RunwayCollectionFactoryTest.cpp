@@ -18,9 +18,9 @@ namespace UKControllerPluginTest::Runway {
             airfields.AddAirfield(std::make_shared<UKControllerPlugin::Airfield::AirfieldModel>(3, "EGLL", nullptr));
         }
 
-        static auto
-        MakeRunway(const nlohmann::json& overridingData = nlohmann::json::object(), const std::string& keyToRemove = "")
-            -> const nlohmann::json
+        static auto MakeRunway(
+            const nlohmann::json& overridingData = nlohmann::json::object(),
+            const std::string& keyToRemove = "") -> const nlohmann::json
         {
             nlohmann::json runway{
                 {"id", 1},

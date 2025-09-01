@@ -27,8 +27,8 @@ namespace UKControllerPlugin::Hold {
         return this->callsign;
     }
 
-    auto HoldingAircraft::GetProximityHolds() const
-        -> const std::set<std::shared_ptr<ProximityHold>, CompareProximityHolds>&
+    auto
+    HoldingAircraft::GetProximityHolds() const -> const std::set<std::shared_ptr<ProximityHold>, CompareProximityHolds>&
     {
         return this->proximityHolds;
     }

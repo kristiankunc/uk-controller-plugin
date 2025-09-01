@@ -19,8 +19,8 @@ namespace UKControllerPlugin::Approach {
         ~ApproachModuleFactory();
         [[nodiscard]] auto Sequencer() -> ApproachSequencer&;
         [[nodiscard]] auto SequencerOptions() -> ApproachSequencerOptions&;
-        [[nodiscard]] auto SpacingCalculator(const Bootstrap::PersistenceContainer& container)
-            -> ApproachSpacingCalculator&;
+        [[nodiscard]] auto
+        SpacingCalculator(const Bootstrap::PersistenceContainer& container) -> ApproachSpacingCalculator&;
 
         private:
         // The approach sequencer

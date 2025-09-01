@@ -24,10 +24,10 @@ namespace UKControllerPlugin::Releases {
         static auto ShouldDisplay() -> bool;
         static auto GetCoordinates() -> POINT;
         auto IsVisible() const -> bool override;
-        void Move([[maybe_unused]] RECT position, [[maybe_unused]] std::string objectDescription) override{};
+        void Move([[maybe_unused]] RECT position, [[maybe_unused]] std::string objectDescription) override {};
         void Render(
             Windows::GdiGraphicsInterface& graphics, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen) override;
-        void ResetPosition() override{};
+        void ResetPosition() override {};
 
         private:
         static auto GetControllerColour(const std::shared_ptr<DepartureReleaseRequest>& request) -> COLORREF;

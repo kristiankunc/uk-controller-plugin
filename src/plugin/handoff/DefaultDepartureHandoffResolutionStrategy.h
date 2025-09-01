@@ -36,8 +36,8 @@ namespace UKControllerPlugin::Handoff {
             -> std::shared_ptr<const ResolvedHandoff> override;
 
         private:
-        [[nodiscard]] auto ResolveController(const HandoffOrder& handoff) const
-            -> std::shared_ptr<Controller::ControllerPosition>;
+        [[nodiscard]] auto
+        ResolveController(const HandoffOrder& handoff) const -> std::shared_ptr<Controller::ControllerPosition>;
 
         // Maps flightplans to sids to handoffs
         const FlightplanSidHandoffMapper& sidMapper;

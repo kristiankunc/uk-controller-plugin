@@ -81,8 +81,8 @@ namespace UKControllerPlugin::Notifications {
     }
 
     auto NotificationsValid(
-        const nlohmann::json& notifications, const Controller::ControllerPositionHierarchyFactory& hierarchyFactory)
-        -> bool
+        const nlohmann::json& notifications,
+        const Controller::ControllerPositionHierarchyFactory& hierarchyFactory) -> bool
     {
         return notifications.is_array() && std::find_if_not(
                                                notifications.cbegin(),
@@ -93,8 +93,8 @@ namespace UKControllerPlugin::Notifications {
     }
 
     auto NotificationValid(
-        const nlohmann::json& notification, const Controller::ControllerPositionHierarchyFactory& hierarchyFactory)
-        -> bool
+        const nlohmann::json& notification,
+        const Controller::ControllerPositionHierarchyFactory& hierarchyFactory) -> bool
     {
         return notification.is_object() && notification.contains("id") && notification.at("id").is_number_integer() &&
                notification.contains("title") && notification.at("title").is_string() &&
@@ -109,8 +109,8 @@ namespace UKControllerPlugin::Notifications {
     }
 
     auto ControllersValid(
-        const nlohmann::json& controllers, const Controller::ControllerPositionHierarchyFactory& hierarchyFactory)
-        -> bool
+        const nlohmann::json& controllers,
+        const Controller::ControllerPositionHierarchyFactory& hierarchyFactory) -> bool
     {
         try {
             static_cast<void>(hierarchyFactory.CreateFromJsonByCallsign(controllers));

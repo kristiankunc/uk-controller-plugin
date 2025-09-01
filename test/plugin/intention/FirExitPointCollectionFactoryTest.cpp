@@ -12,8 +12,8 @@ namespace UKControllerPluginTest::IntentionCode {
     {
         public:
         static auto MakeExitPoint(
-            const nlohmann::json& overridingData = nlohmann::json::object(), const std::string& keyToRemove = "")
-            -> nlohmann::json
+            const nlohmann::json& overridingData = nlohmann::json::object(),
+            const std::string& keyToRemove = "") -> nlohmann::json
         {
             nlohmann::json exitPoint{
                 {"id", 1},

@@ -22,13 +22,13 @@ namespace UKControllerPlugin::Wake {
         [[nodiscard]] auto Code() const -> const std::string&;
         [[nodiscard]] auto Description() const -> const std::string&;
         [[nodiscard]] auto RelativeWeighting() const -> int;
-        [[nodiscard]] auto SubsequentDepartureIntervals() const
-            -> const std::list<std::shared_ptr<DepartureWakeInterval>>&;
+        [[nodiscard]] auto
+        SubsequentDepartureIntervals() const -> const std::list<std::shared_ptr<DepartureWakeInterval>>&;
         [[nodiscard]] auto DepartureInterval(const WakeCategory& nextAircraftCategory, bool intermediate) const
             -> std::shared_ptr<DepartureWakeInterval>;
         [[nodiscard]] auto SubsequentArrivalIntervals() const -> const std::list<std::shared_ptr<ArrivalWakeInterval>>&;
-        [[nodiscard]] auto ArrivalInterval(const WakeCategory& nextAircraftCategory) const
-            -> std::shared_ptr<ArrivalWakeInterval>;
+        [[nodiscard]] auto
+        ArrivalInterval(const WakeCategory& nextAircraftCategory) const -> std::shared_ptr<ArrivalWakeInterval>;
 
         private:
         // The id in the API

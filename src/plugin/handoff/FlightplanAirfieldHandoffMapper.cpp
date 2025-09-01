@@ -12,9 +12,8 @@ namespace UKControllerPlugin::Handoff {
     {
     }
 
-    auto
-    FlightplanAirfieldHandoffMapper::MapForFlightplan(const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const
-        -> std::shared_ptr<HandoffOrder>
+    auto FlightplanAirfieldHandoffMapper::MapForFlightplan(
+        const Euroscope::EuroScopeCFlightPlanInterface& flightplan) const -> std::shared_ptr<HandoffOrder>
     {
         const auto airfield = airfields.FetchAirfieldByIcao(flightplan.GetOrigin());
         if (!airfield || !airfield->HasDefaultHandoff()) {

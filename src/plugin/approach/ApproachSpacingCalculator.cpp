@@ -21,9 +21,8 @@ namespace UKControllerPlugin::Approach {
     {
     }
 
-    auto
-    ApproachSpacingCalculator::Calculate(const std::string& airfield, const ApproachSequencedAircraft& aircraft) const
-        -> double
+    auto ApproachSpacingCalculator::Calculate(
+        const std::string& airfield, const ApproachSequencedAircraft& aircraft) const -> double
     {
         /*
          * Start by checking that we have all the information we need in order to be able to make a

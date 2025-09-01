@@ -34,4 +34,4 @@ namespace UKControllerPlugin {
                 eventHandlers;
         };
     }; // namespace Controller
-};     // namespace UKControllerPlugin
+}; // namespace UKControllerPlugin

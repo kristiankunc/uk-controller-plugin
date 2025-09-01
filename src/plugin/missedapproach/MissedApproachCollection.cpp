@@ -41,9 +41,8 @@ namespace UKControllerPlugin::MissedApproach {
         }
     }
 
-    auto MissedApproachCollection::FirstWhere(
-        const std::function<bool(const std::shared_ptr<MissedApproach>&)>& predicate) const
-        -> std::shared_ptr<MissedApproach>
+    auto MissedApproachCollection::FirstWhere(const std::function<bool(const std::shared_ptr<MissedApproach>&)>&
+                                                  predicate) const -> std::shared_ptr<MissedApproach>
     {
         auto lock = this->Lock();
         for (const auto& approach : this->missedApproaches) {

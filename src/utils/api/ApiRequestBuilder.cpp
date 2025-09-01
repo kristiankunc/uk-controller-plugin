@@ -101,8 +101,8 @@ namespace UKControllerPlugin::Api {
     /*
         Builds a request for assigning a stand to an aircraft
     */
-    auto ApiRequestBuilder::BuildAssignStandToAircraftRequest(const std::string& callsign, int standId) const
-        -> CurlRequest
+    auto
+    ApiRequestBuilder::BuildAssignStandToAircraftRequest(const std::string& callsign, int standId) const -> CurlRequest
     {
         CurlRequest request(BuildUrl("/stand/assignment"), CurlRequest::METHOD_PUT);
         nlohmann::json body;
@@ -116,8 +116,8 @@ namespace UKControllerPlugin::Api {
     /*
         Builds a request for deleting an aircrafts stand assignment
     */
-    auto ApiRequestBuilder::BuildDeleteStandAssignmentForAircraftRequest(const std::string& callsign) const
-        -> CurlRequest
+    auto
+    ApiRequestBuilder::BuildDeleteStandAssignmentForAircraftRequest(const std::string& callsign) const -> CurlRequest
     {
         return this->AddCommonHeaders(
             CurlRequest(BuildUrl("/stand/assignment/" + callsign), CurlRequest::METHOD_DELETE));
@@ -321,8 +321,10 @@ namespace UKControllerPlugin::Api {
     }
 
     auto ApiRequestBuilder::BuildDepartureReleaseRequest(
-        const std::string& callsign, int requestingControllerId, int targetController, int expiresInSeconds) const
-        -> CurlRequest
+        const std::string& callsign,
+        int requestingControllerId,
+        int targetController,
+        int expiresInSeconds) const -> CurlRequest
     {
         CurlRequest request(this->BuildUrl("/departure/release/request"), CurlRequest::METHOD_POST);
 
@@ -400,8 +402,8 @@ namespace UKControllerPlugin::Api {
 
         return this->AddCommonHeaders(request);
     }
-    auto ApiRequestBuilder::BuildDeletePrenoteMessageRequest(int messageId) const
-        -> UKControllerPlugin::Curl::CurlRequest
+    auto
+    ApiRequestBuilder::BuildDeletePrenoteMessageRequest(int messageId) const -> UKControllerPlugin::Curl::CurlRequest
     {
         return this->AddCommonHeaders(
             {this->BuildUrl("/prenotes/messages/" + std::to_string(messageId)), CurlRequest::METHOD_DELETE});

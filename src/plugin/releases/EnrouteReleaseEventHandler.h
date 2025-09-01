@@ -43,10 +43,10 @@ namespace UKControllerPlugin::Releases {
             int editReleasePointCallbackId);
         void AddIncomingRelease(const std::string& callsign, UKControllerPlugin::Releases::EnrouteRelease release);
         void AddOutgoingRelease(const std::string& callsign, UKControllerPlugin::Releases::EnrouteRelease release);
-        [[nodiscard]] auto GetIncomingRelease(const std::string& callsign) const
-            -> const UKControllerPlugin::Releases::EnrouteRelease&;
-        [[nodiscard]] auto GetOutgoingRelease(const std::string& callsign) const
-            -> const UKControllerPlugin::Releases::EnrouteRelease&;
+        [[nodiscard]] auto
+        GetIncomingRelease(const std::string& callsign) const -> const UKControllerPlugin::Releases::EnrouteRelease&;
+        [[nodiscard]] auto
+        GetOutgoingRelease(const std::string& callsign) const -> const UKControllerPlugin::Releases::EnrouteRelease&;
         [[nodiscard]] auto GetInvalidRelease() const -> const UKControllerPlugin::Releases::EnrouteRelease&;
         [[nodiscard]] auto ReleaseMessageValid(const nlohmann::json& message) const -> bool;
         void DisplayReleaseTypeMenu(

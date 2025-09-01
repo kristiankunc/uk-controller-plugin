@@ -58,7 +58,7 @@ namespace UKControllerPlugin {
                 int releaseCancellationCallbackId);
             void ProcessPushEvent(const Push::PushEvent& message) override;
             [[nodiscard]] auto GetPushEventSubscriptions() const -> std::set<Push::PushEventSubscription> override;
-            void PluginEventsSynced() override{};
+            void PluginEventsSynced() override {};
             void AddReleaseRequest(const std::shared_ptr<DepartureReleaseRequest>& request);
             auto GetReleaseRequest(int id) -> std::shared_ptr<DepartureReleaseRequest>;
             void TimedEventTrigger() override;
@@ -87,8 +87,8 @@ namespace UKControllerPlugin {
                 Euroscope::EuroScopeCRadarTargetInterface& radarTarget,
                 const std::string& context,
                 const POINT& mousePos);
-            [[nodiscard]] auto GetReleasesToDisplay() const
-                -> const std::set<std::shared_ptr<DepartureReleaseRequest>>&;
+            [[nodiscard]] auto
+            GetReleasesToDisplay() const -> const std::set<std::shared_ptr<DepartureReleaseRequest>>&;
             auto GetReleasesRequiringUsersDecision()
                 -> std::set<std::shared_ptr<DepartureReleaseRequest>, CompareDepartureReleases>;
             void SelectReleaseRequestToCancel(
@@ -111,16 +111,15 @@ namespace UKControllerPlugin {
             [[nodiscard]] auto DepartureReleaseApprovedMessageValid(const nlohmann::json& data) const -> bool;
             [[nodiscard]] auto DepartureReleaseCancelMessageValid(const nlohmann::json& data) const -> bool;
             static auto ReleaseShouldBeRemoved(const std::shared_ptr<DepartureReleaseRequest>& releaseRequest) -> bool;
-            [[nodiscard]] auto
-            ControllerCanMakeReleaseDecision(const std::shared_ptr<DepartureReleaseRequest>& releaseRequest) const
-                -> bool;
-            auto FindReleaseRequiringDecisionForCallsign(std::string callsign)
-                -> std::shared_ptr<DepartureReleaseRequest>;
+            [[nodiscard]] auto ControllerCanMakeReleaseDecision(
+                const std::shared_ptr<DepartureReleaseRequest>& releaseRequest) const -> bool;
+            auto
+            FindReleaseRequiringDecisionForCallsign(std::string callsign) -> std::shared_ptr<DepartureReleaseRequest>;
             void SetReleaseStatusIndicatorTagData(Tag::TagData& tagData);
             void SetReleaseCountdownTagData(Tag::TagData& tagData);
             void SetRequestingControllerTagData(Tag::TagData& tagData);
-            [[nodiscard]] auto UserRequestedRelease(const std::shared_ptr<DepartureReleaseRequest>& request) const
-                -> bool;
+            [[nodiscard]] auto
+            UserRequestedRelease(const std::shared_ptr<DepartureReleaseRequest>& request) const -> bool;
 
             // A guard on the map to allow async operations
             std::mutex releaseMapGuard;

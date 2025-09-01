@@ -10,8 +10,9 @@ namespace UKControllerPluginUtilsTest::Collection {
         {
         }
 
-        [[nodiscard]] auto GetIterator() -> UKControllerPluginUtils::Collection::
-            CollectionIterator<int, std::string, std::map<int, std::shared_ptr<std::string>>::const_iterator>
+        [[nodiscard]] auto GetIterator()
+            -> UKControllerPluginUtils::Collection::
+                CollectionIterator<int, std::string, std::map<int, std::shared_ptr<std::string>>::const_iterator>
         {
             return UKControllerPluginUtils::Collection::
                 CollectionIterator<int, std::string, std::map<int, std::shared_ptr<std::string>>::const_iterator>(

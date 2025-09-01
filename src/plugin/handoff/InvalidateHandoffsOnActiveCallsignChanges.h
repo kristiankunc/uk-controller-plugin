@@ -20,9 +20,8 @@ namespace UKControllerPlugin::Handoff {
         void CallsignsFlushed() override;
 
         private:
-        [[nodiscard]] static auto
-        ShouldInvalidateOnCallsignAdded(const ResolvedHandoff& handoff, const Controller::ActiveCallsign& callsign)
-            -> bool;
+        [[nodiscard]] static auto ShouldInvalidateOnCallsignAdded(
+            const ResolvedHandoff& handoff, const Controller::ActiveCallsign& callsign) -> bool;
 
         // The resolver
         std::shared_ptr<DepartureHandoffResolver> resolver;

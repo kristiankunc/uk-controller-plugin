@@ -15,8 +15,8 @@ namespace UKControllerPlugin::Log {
         static void Bootstrap(Windows::WinApiInterface& windows, const std::wstring& logfilePrefix);
         static auto CreateLogsFolder(Windows::WinApiInterface& windows) -> bool;
         static void PruneLogs(Windows::WinApiInterface& windows, const std::wstring& logFilePrefix);
-        static auto GetExistingLogs(Windows::WinApiInterface& windows, const std::wstring& logFilePrefix)
-            -> std::set<std::wstring>;
+        static auto
+        GetExistingLogs(Windows::WinApiInterface& windows, const std::wstring& logFilePrefix) -> std::set<std::wstring>;
         static auto GetLogfileName(const std::wstring& logFilePrefix) -> std::wstring;
         [[nodiscard]] static auto GetLogsFolder() -> std::wstring;
 

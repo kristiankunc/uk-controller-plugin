@@ -405,8 +405,8 @@ namespace UKControllerPlugin::MinStack {
     /*
         Is the selected element the last in the list?
     */
-    auto MinStackConfigurationDialog::IsLastElement(unsigned int selectedIndex, unsigned int itemCount, bool swapUp)
-        -> bool
+    auto
+    MinStackConfigurationDialog::IsLastElement(unsigned int selectedIndex, unsigned int itemCount, bool swapUp) -> bool
     {
         return swapUp ? selectedIndex == 0 : selectedIndex == itemCount - 1;
     }

@@ -27,10 +27,10 @@ namespace UKControllerPlugin::Prenote {
         static void MoveAllInstances(POINT position);
         static auto ShouldDisplay() -> bool;
         auto IsVisible() const -> bool override;
-        void Move(RECT position, std::string objectDescription) override{};
+        void Move(RECT position, std::string objectDescription) override {};
         void Render(
             Windows::GdiGraphicsInterface& graphics, Euroscope::EuroscopeRadarLoopbackInterface& radarScreen) override;
-        void ResetPosition() override{};
+        void ResetPosition() override {};
 
         private:
         [[nodiscard]] static auto GetTextColourForMessage(const std::shared_ptr<PrenoteMessage>& message) -> COLORREF;

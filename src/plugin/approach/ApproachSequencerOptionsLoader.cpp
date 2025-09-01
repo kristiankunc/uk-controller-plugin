@@ -84,8 +84,8 @@ namespace UKControllerPlugin::Approach {
         return MakeDescriptionBase(airfield, "Default Minimum Separation");
     }
 
-    auto ApproachSequencerOptionsLoader::MakeKeyBase(const std::string& airfield, const std::string& item)
-        -> std::string
+    auto
+    ApproachSequencerOptionsLoader::MakeKeyBase(const std::string& airfield, const std::string& item) -> std::string
     {
         return "approachSequencer" + item + airfield;
     }

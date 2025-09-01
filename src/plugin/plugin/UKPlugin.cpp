@@ -270,8 +270,8 @@ namespace UKControllerPlugin {
     /*
         Gets a flightplan for a given callsign.
     */
-    auto UKPlugin::GetFlightplanForCallsign(std::string callsign) const
-        -> std::shared_ptr<EuroScopeCFlightPlanInterface>
+    auto
+    UKPlugin::GetFlightplanForCallsign(std::string callsign) const -> std::shared_ptr<EuroScopeCFlightPlanInterface>
     {
         EuroScopePlugIn::CFlightPlan plan = this->FlightPlanSelect(callsign.c_str());
 
@@ -285,8 +285,8 @@ namespace UKControllerPlugin {
     /*
         Gets a flightplan for a given callsign.
     */
-    auto UKPlugin::GetRadarTargetForCallsign(std::string callsign) const
-        -> std::shared_ptr<EuroScopeCRadarTargetInterface>
+    auto
+    UKPlugin::GetRadarTargetForCallsign(std::string callsign) const -> std::shared_ptr<EuroScopeCRadarTargetInterface>
     {
         EuroScopePlugIn::CRadarTarget target = this->RadarTargetSelect(callsign.c_str());
 

@@ -136,8 +136,8 @@ namespace UKControllerPlugin::Releases {
     /*
      * Get the timer colour depending on the various times used in releases.
      */
-    auto DepartureReleaseRequestView::GetTimerColour(const std::shared_ptr<DepartureReleaseRequest>& request)
-        -> COLORREF
+    auto
+    DepartureReleaseRequestView::GetTimerColour(const std::shared_ptr<DepartureReleaseRequest>& request) -> COLORREF
     {
         return request->AwaitingReleasedTime() ? statusIndicatorReleasedAwaitingTime
                                                : TimeUntilExpiryColour(request->ReleaseExpiryTime());

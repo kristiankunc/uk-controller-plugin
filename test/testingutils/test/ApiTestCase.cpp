@@ -51,8 +51,8 @@ namespace UKControllerPluginTest {
         factory->RequestFactory().AwaitRequestCompletion(std::chrono::seconds(5));
     }
 
-    auto ApiTestCase::SettingsProvider()
-        -> testing::NiceMock<UKControllerPluginUtilsTest::Api::MockApiSettingsProvider>&
+    auto
+    ApiTestCase::SettingsProvider() -> testing::NiceMock<UKControllerPluginUtilsTest::Api::MockApiSettingsProvider>&
     {
         return *settingsProvider;
     }

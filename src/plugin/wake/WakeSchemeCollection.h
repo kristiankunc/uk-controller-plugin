@@ -13,8 +13,8 @@ namespace UKControllerPlugin::Wake {
         [[nodiscard]] auto GetById(int id) const -> std::shared_ptr<WakeScheme>;
         [[nodiscard]] auto GetByKey(const std::string& key) const -> std::shared_ptr<WakeScheme>;
         [[nodiscard]] auto GetByName(const std::string& name) const -> std::shared_ptr<WakeScheme>;
-        [[nodiscard]] auto FirstWhere(const std::function<bool(const WakeScheme&)> predicate) const
-            -> std::shared_ptr<WakeScheme>;
+        [[nodiscard]] auto
+        FirstWhere(const std::function<bool(const WakeScheme&)> predicate) const -> std::shared_ptr<WakeScheme>;
         void ForEach(const std::function<void(const WakeScheme&)> callback) const;
 
         private:

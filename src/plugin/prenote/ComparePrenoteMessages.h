@@ -12,7 +12,7 @@ namespace UKControllerPlugin::Prenote {
 
         auto operator()(const std::shared_ptr<PrenoteMessage>& hold, int id) const -> bool;
         auto operator()(int id, const std::shared_ptr<PrenoteMessage>& hold) const -> bool;
-        auto operator()(const std::shared_ptr<PrenoteMessage>& a, const std::shared_ptr<PrenoteMessage>& b) const
-            -> bool;
+        auto
+        operator()(const std::shared_ptr<PrenoteMessage>& a, const std::shared_ptr<PrenoteMessage>& b) const -> bool;
     };
 } // namespace UKControllerPlugin::Prenote

@@ -94,8 +94,8 @@ namespace UKControllerPlugin::Releases {
     /*
      * An acknowledged message needs an id that we know about.
      */
-    auto DepartureReleaseEventHandler::DepartureReleaseAcknowledgedMessageValid(const nlohmann::json& data) const
-        -> bool
+    auto
+    DepartureReleaseEventHandler::DepartureReleaseAcknowledgedMessageValid(const nlohmann::json& data) const -> bool
     {
         return data.is_object() && data.contains("id") && data.at("id").is_number_integer() &&
                this->releaseRequests->Get(data.at("id").get<int>()) != nullptr;
@@ -131,9 +131,8 @@ namespace UKControllerPlugin::Releases {
     /*
      * Whether releases should be removed from the lists.
      */
-    auto
-    DepartureReleaseEventHandler::ReleaseShouldBeRemoved(const std::shared_ptr<DepartureReleaseRequest>& releaseRequest)
-        -> bool
+    auto DepartureReleaseEventHandler::ReleaseShouldBeRemoved(
+        const std::shared_ptr<DepartureReleaseRequest>& releaseRequest) -> bool
     {
         if (releaseRequest->Approved()) {
             return releaseRequest->ReleaseExpiryTime() +
@@ -502,9 +501,8 @@ namespace UKControllerPlugin::Releases {
                 : requestingControllerCallsign);
     }
 
-    auto
-    DepartureReleaseEventHandler::UserRequestedRelease(const std::shared_ptr<DepartureReleaseRequest>& request) const
-        -> bool
+    auto DepartureReleaseEventHandler::UserRequestedRelease(
+        const std::shared_ptr<DepartureReleaseRequest>& request) const -> bool
     {
         return this->activeCallsigns.UserHasCallsign() &&
                this->activeCallsigns.GetUserCallsign().GetNormalisedPosition().GetId() ==
